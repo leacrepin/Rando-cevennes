@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+{% block body %}
+    <p class="m-0 text-center text-success ">{{ text }} </p>
+    <a href={{ path('Home') }} class="btn btn-primary">Home</a>
+{% endblock %}

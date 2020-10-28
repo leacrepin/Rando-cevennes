@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription N°{{ incription_rando.id }}{% endblock %}
+
+{% block body %}
+    <h1>Inscription N°{{ incription_rando.id }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ incription_rando.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ incription_rando.nom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ incription_rando.email }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ incription_rando.message }}</td>
+            </tr>
+            <tr>
+                <th>DateDemande</th>
+                <td>{{ incription_rando.dateDemande ? incription_rando.dateDemande|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('incription_rando_index') }}">Retour à l'index</a>
+
+
+{% endblock %}

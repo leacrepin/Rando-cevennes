@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Randonnee n°{{ randonnee.id }}{% endblock %}
+
+{% block body %}
+    <h1>Randonnee n°{{ randonnee.id }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ randonnee.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ randonnee.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ randonnee.description }}</td>
+            </tr>
+            <tr>
+                <th>Duree</th>
+                <td>{{ randonnee.duree }}</td>
+            </tr>
+            <tr>
+                <th>DateRando</th>
+                <td>{{ randonnee.dateRando ? randonnee.dateRando|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('randonnee_index') }}">back to list</a>
+
+    <a href="{{ path('randonnee_edit', {'id': randonnee.id}) }}">edit</a>
+
+    {{ include('randonnee/_delete_form.html.twig') }}
+{% endblock %}

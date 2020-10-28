@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes des randonnées{% endblock %}
+
+{% block body %}
+    {% for rando in randos %}
+        <div class="card">
+            <div class="card-body">
+                <a href={{ path('VoirRando', {'id': rando.id}) }}>
+                    <h5 class="card-title">{{ rando.titre | upper}} ({{rando.duree}}h)</h5>
+                </a>
+                <p class="card-text">{{ rando.dateRando|date('Y-m-d')}}</p>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+{% endblock %}

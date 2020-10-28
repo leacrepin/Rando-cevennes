@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des catégories{% endblock %}
+{% block body %}
+<h5>Veuillez selectionner la catégorie souhaitée</h5>
+    {% for cat in categories %}
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">
+                    <a href={{ path('VoirRandoByCat', {'id': cat.id}) }}>
+                        {{ cat.nom  }}
+                    </a>
+                </p>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+{% endblock %}

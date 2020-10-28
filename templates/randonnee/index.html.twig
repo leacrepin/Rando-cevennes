@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des randonnées{% endblock %}
+
+{% block body %}
+    <h1>Liste des randonnées</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Duree</th>
+                <th>DateRando</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for randonnee in randonnees %}
+            <tr>
+                <td>{{ randonnee.id }}</td>
+                <td>{{ randonnee.titre }}</td>
+                <td>{{ randonnee.description }}</td>
+                <td>{{ randonnee.duree }}</td>
+                <td>{{ randonnee.dateRando ? randonnee.dateRando|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('randonnee_show', {'id': randonnee.id}) }}">show</a>
+                    <a href="{{ path('randonnee_edit', {'id': randonnee.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Pas de randonnée enregistrée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('randonnee_new') }}">Nouvelle randonnée</a>
+{% endblock %}

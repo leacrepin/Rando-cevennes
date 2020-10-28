@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ asset('css/heroic-features.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+  <a class="navbar-brand" href={{ path('Home') }}>Randonnée Cevennes</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href={{ path('VoirCat') }}>Voir les randonnées</a>
+      <a class="nav-item nav-link active" href={{ path('InscriptionRando') }}>Inscription pour une randonnée</a>
+      <a class="nav-item nav-link active" href={{ path('randonnee_index') }}>Administration randonnée</a>
+      <a class="nav-item nav-link active" href={{ path('categorie_index') }}>Administration catégorie</a>
+      <a class="nav-item nav-link active" href={{ path('incription_rando_index') }}>Administration inscriptions</a>
+      <a class="nav-item nav-link active" href={{ path('app_logout') }}>Déconnexion</a>
+    </div>
+  </div>
+</nav>
+<div class= "container" id="body">
+    {% block body %}{% endblock %}
+</div>
+</body>
+
+<footer class="footer py-5 bg-dark">
+    <div class= "container">
+        {{ render("App\Controller\HomeController:categoryRender") }}
+    </div>
+</footer>
+
+</html>
